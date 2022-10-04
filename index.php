@@ -1,6 +1,10 @@
 <?php
     session_start();
 
+    if(!isset($_SESSION['sacola'])){
+        $_SESSION['sacola'] = array();
+    }
+
     include_once "conexao.php";
 ?>
 
@@ -20,37 +24,27 @@
 
         <nav class="navbar navbar-expand navbar-dark" style="border: 6px solid rgb(59, 59, 88);; padding: 0px; font-size: 20px;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#" style="font-size: 24px;">Navbar</a>
+
+                <a class="navbar-brand" href="#" style="font-size: 24px;">Lojinha</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="http://localhost/E-Commerce/">Home</a>
                     </li>
+
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
+                    <a class="nav-link active" aria-current="page" href="sacola.php">Sacola</a>
                     </li>
                 </ul>
+
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-danger" type="submit">Search</button>
+                    <input class="form-control me-2" type="search" placeholder="Digite algo aqui..." aria-label="Search">
+                    <button class="btn btn-outline-danger" type="submit">Pesquisar</button>
                 </form>
+
                 </div>
             </div>
         </nav>
@@ -92,7 +86,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $linha['descricao'];?></h5>
                                     <p class="card-text"><?php echo $linha['resumo']?></p>
-                                    <a href="http://localhost/luis/Projeto_E-Commerce/Operacoes/pagina_informacoes_produto.php?id=<?php echo $linha['id_produto'];?>" class="btn btn-primary">Saber mais</a>
+                                    <a href="http://localhost/E-Commerce/informacao_produto.php?id=<?php echo $linha['id_produto'];?>" class="btn btn-primary">Saber mais</a>
                                 </div>
                         </div>
                     <?php
